@@ -1,13 +1,15 @@
 import React, { Component, PropTypes } from 'react';
 import { Provider } from 'react-redux';
-import { Router, browserHistory } from 'react-router';
+import { Router, browserHistory, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import routes from './routes';
+
+const history = (BUILD_TARGET === 'electron') ? hashHistory : browserHistory;
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.history = syncHistoryWithStore(browserHistory, this.props.store);
+    this.history = syncHistoryWithStore(history, this.props.store);
   }
   render() {
     return (

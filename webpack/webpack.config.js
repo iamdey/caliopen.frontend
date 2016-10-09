@@ -3,32 +3,29 @@ const webpack = require('webpack');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const rootFolder = path.resolve(__dirname, '..');
-const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   devtool: 'eval',
   context: rootFolder,
-  entry: isDev ? [
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
-    'webpack/hot/only-dev-server',
-    './client/index.js',
-  ] : [
-    './client/index.js',
+  entry: [
+    './src/index.js',
   ],
   output: {
-    path: path.join(__dirname, '..', 'public'),
+    path: path.join(__dirname, '..', 'dist'),
     filename: 'bundle.js',
     publicPath: '/',
   },
-  plugins: isDev ? [
-    new webpack.HotModuleReplacementPlugin(),
+  plugins: [
     new DashboardPlugin(),
-  ] : [],
+    new webpack.DefinePlugin({
+      BUILD_TARGET: JSON.stringify('web'),
+      CALIOPEN_ENV: JSON.stringify(process.env.NODE_ENV),
+    }),
+  ],
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      include: path.join(__dirname, '../client/'),
+      include: path.join(__dirname, '../src/'),
       loaders: ['babel-loader'],
     }]
   },
