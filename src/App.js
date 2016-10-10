@@ -4,7 +4,17 @@ import { Router, browserHistory, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import routes from './routes';
 
-const history = (BUILD_TARGET === 'electron') ? hashHistory : browserHistory;
+let history;
+
+switch (BUILD_TARGET) {
+  case 'electron':
+  case 'cordova':
+    history = hashHistory
+    break;
+  default:
+    history = browserHistory;
+    break;
+}
 
 class App extends Component {
   constructor(props) {

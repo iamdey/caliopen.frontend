@@ -7,8 +7,13 @@ coverage
 # production
 build
 dist
+cordova/www
 
 # misc
 .DS_Store
 .env
 npm-debug.log
+
+# build targets
+cordova/platforms
+cordova/plugins
