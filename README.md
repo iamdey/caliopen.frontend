@@ -74,3 +74,17 @@ npm run release
 ```
 npm run start:prod
 ```
+
+## Code architecture
+
+All the things related to react follows [this guide](https://medium.com/@alexmngn/how-to-better-organize-your-react-applications-2fd3ea1920f1#.rwqbggzgf) in `src` folder.
+
+Each build target has its folder:
+
+* server (SSR and browser client)
+* cordova (for platforms android, ios and WP)
+* electron (for linux, macos and windows)
+
+The `index.html` is generated using webpack and a `template`.
+
+And each target has its `webpack` config.

@@ -1,0 +1,11 @@
+$co-color__fg__back: #333;
+
+.l-body {
+  &__content {
+    // XXX: need a better fix for call-to-action override on mobile
+    margin-bottom: 160px;
+    padding-top: 45px;
+
+    background-color: $co-color__fg__back;
+  }
+}
