@@ -5,8 +5,6 @@ const DashboardPlugin = require('webpack-dashboard/plugin');
 const rootFolder = path.resolve(__dirname, '..');
 
 module.exports = {
-  devtool: 'eval',
-  context: rootFolder,
   entry: [
     './src/index.js',
   ],
