@@ -8,7 +8,7 @@ const isDev = process.env.NODE_ENV === 'development';
 const entry = configBase.entry.slice();
 
 if (isDev) {
-  entry.push(
+  entry.unshift(
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
     'webpack/hot/only-dev-server'
