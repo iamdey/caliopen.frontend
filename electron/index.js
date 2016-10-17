@@ -1,5 +1,7 @@
 const {app, BrowserWindow} = require('electron');
 
+const isDev = process.env.NODE_ENV === 'development'
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
@@ -9,14 +11,14 @@ function createWindow () {
   win = new BrowserWindow({width: 1024, height: 800})
 
   // and load the index.html of the app.
-  win.loadURL(`file://${__dirname}/build/index.html`)
+  win.loadURL(`file://${process.cwd()}/dist/electron/index.html`)
 
   win.webContents.on('did-finish-load', () => {
     win.show();
     win.focus();
   });
 
-  if (process.env.NODE_ENV === 'development') {
+  if (isDev) {
     win.webContents.openDevTools()
   }
 

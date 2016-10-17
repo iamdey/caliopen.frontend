@@ -1,35 +1,21 @@
-const configBase = require('./webpack.config.js');
-
 const path = require('path');
-const webpack = require('webpack');
-
+const baseConfig = require('./config.js');
 const isDev = process.env.NODE_ENV === 'development';
 
-const entry = configBase.entry.slice();
-
-if (isDev) {
-  entry.unshift(
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
-    'webpack/hot/only-dev-server'
-  );
-}
-
-const plugins = configBase.plugins.slice()
-
-if (isDev) {
-  plugins.push(
-    new webpack.HotModuleReplacementPlugin()
-  );
-}
-
-const config = Object.assign(configBase, {
-  entry,
-  output: Object.assign(configBase.output, {
-    path: path.join(__dirname, '..', 'server', 'dist'),
-    publicPath: '/',
-  }),
-  plugins,
+const config = Object.assign(baseConfig.getBase('web'), {
+  target: 'node',
+  entry: [path.join(__dirname, '../server/index.js')],
+  output: {
+    path: path.join(__dirname, '../dist/server/'),
+    filename: 'index.js',
+  },
 });
+
+if (isDev) {
+  config.output = {
+    path: path.join(__dirname, '../.kotatsu/'),
+    filename: 'bundle.js',
+  }
+}
 
 module.exports = config;

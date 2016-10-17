@@ -7,8 +7,8 @@ const isDev = process.env.NODE_ENV === 'development';
 require('babel-register')();
 
 const config = {
-  styles: [],
-  scripts: ['/bundle.js'],
+  styles: ['/build/style.css'],
+  scripts: isDev ? ['/build/bundle.js'] : ['/bundle.js'],
 }
 
 /**
@@ -17,26 +17,18 @@ const config = {
 function getMarkup(reactElement, store, assets) {
   const markup = ReactDOMServer.renderToString(reactElement);
   const initialState = store.getState();
-  const scripts = assets.scripts.reduce((str, path) => `
-${str}
-<script src="${path}"></script>`, '');
-  const tpl = fs.readFileSync(path.join(__dirname, '../..', 'template', 'index.html'), 'utf8');
+  const scripts = assets.scripts.reduce((str, path) => `${str}<script src="${path}"></script>\n`, '');
+  const stylesheets = assets.styles.reduce((str, path) => `${str}<link rel="stylesheet" href="${path}"></link>\n`, '');
+  const tpl = fs.readFileSync(path.join(process.cwd(), 'template', 'index.html'), 'utf8');
 
   return [
-    { key: '%HEAD%', value: `<script>window.__STORE__ = ${JSON.stringify(initialState)};</script>` },
+    { key: '%HEAD%', value: `<script>window.__STORE__ = ${JSON.stringify(initialState)};</script>\n${stylesheets}` },
     { key: '%MARKUP%', value: markup },
     { key: '%BODY_SCRIPT%', value: scripts},
   ].reduce((str, current) => str.replace(current.key, current.value), tpl);
 }
 
 module.exports = (req, res) => {
-  if (isDev) {
-    const assetsByChunkName = res.locals.webpackStats.toJson().assetsByChunkName;
-    config.scripts = (
-      Array.isArray(assetsByChunkName.main) ? assetsByChunkName.main : [assetsByChunkName.main]
-    )
-      .filter(path => path.endsWith('.js'))
-  }
   const ReactRouter = require('react-router');
   const match = ReactRouter.match;
   const RouterContext = React.createFactory(ReactRouter.RouterContext);

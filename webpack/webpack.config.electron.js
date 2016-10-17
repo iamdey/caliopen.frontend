@@ -1,22 +1,18 @@
-const configBase = require('./webpack.config.js');
-
 const path = require('path');
-const webpack = require('webpack');
-const DashboardPlugin = require('webpack-dashboard/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const baseConfig = require('./config.js');
 
-const isDev = process.env.NODE_ENV === 'development';
+let config = Object.assign(baseConfig.getBase('electron'), {
+  target: 'electron',
+  entry: [path.join(__dirname, '../src/index.js')],
+  output: {
+    path: path.join(__dirname, '..', 'dist/electron/'),
+    filename: 'bundle.js',
+  },
+});
 
-const plugins = [
-  new DashboardPlugin(),
-  new webpack.DefinePlugin({
-    BUILD_TARGET: JSON.stringify('electron'),
-    CALIOPEN_ENV: JSON.stringify(process.env.NODE_ENV),
-  }),
-  // Makes the public URL available as %PUBLIC_URL% in index.html, e.g.:
-  // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-  // In development, this will be an empty string.
+config.plugins.push(
   new InterpolateHtmlPlugin({
     HEAD: '',
     BODY_SCRIPT: '',
@@ -26,15 +22,7 @@ const plugins = [
   new HtmlWebpackPlugin({
     inject: true,
     template: path.join(__dirname, '..', 'template', 'index.html'),
-  }),
-];
-
-const config = Object.assign(configBase, {
-  output: {
-    path: path.join(__dirname, '..', 'electron', 'build'),
-    filename: 'bundle.js',
-  },
-  plugins,
-});
+  })
+);
 
 module.exports = config;
