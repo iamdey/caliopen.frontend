@@ -1,28 +1,24 @@
-require('./style.scss');
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import PageContainer from './components/PageContainer';
+import MainViewContainer from './components/MainViewContainer';
 
 class Page extends Component {
   render() {
     return (
-      <off-canvas>
-        <left><navigation-alt></navigation-alt></left>
-        <content>
-          <div className="l-body">
-            <header></header>
-            <navigation></navigation>
-            <section role="main">
-              <div className="l-body__content">
-                {this.props.children}
-              </div>
-            </section>
-            <div className="l-call-to-action">
-              <call-to-action></call-to-action>
-            </div>
-            <flash-message-container></flash-message-container>
-          </div>
-        </content>
-      </off-canvas>
+      <PageContainer>
+        <off-canvas>
+          <left><navigation-alt></navigation-alt></left>
+          <content>
+            <MainViewContainer
+              header={<header></header>}
+              nav={<navigation></navigation>}
+              callToAction={<call-to-action></call-to-action>}
+              flashMessage={<flash-message-container></flash-message-container>}
+            >{ this.props.children }</MainViewContainer>
+          </content>
+        </off-canvas>
+      </PageContainer>
     );
   }
 }
