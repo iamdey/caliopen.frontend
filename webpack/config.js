@@ -35,5 +35,14 @@ module.exports = {
         },
       ],
     },
+    sassLoader: {
+      includePaths: [
+        path.resolve(__dirname, '../src'),
+        path.resolve(__dirname, '../node_modules'),
+      ],
+    },
+    resolve: {
+      alias: { jquery: 'jquery/src/jquery' },
+    },
   }),
 };
