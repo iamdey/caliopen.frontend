@@ -6,7 +6,6 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dashboard -- npm-run-all --parallel --race start:dev:server start:dev:assets",
     "start:dev:server": "NODE_ENV=development PORT=3001 kotatsu start -c webpack/webpack.config.server.js",
     "start:dev:assets": "NODE_ENV=development kotatsu serve -c webpack/webpack.config.browser.js -p 3000 --proxy / http://localhost:3001",
@@ -18,7 +17,9 @@
     "build:desktop:dev": "NODE_ENV=development webpack-dashboard -- webpack --watch --config webpack/webpack.config.electron.js",
     "build:smartphone:dev": "NODE_ENV=development webpack-dashboard -- webpack --watch --config webpack/webpack.config.cordova.js",
     "release": "webpack --config ./webpack/webpack.config.js",
-    "cordova": "cd cordova && cordova"
+    "cordova": "cd cordova && cordova",
+    "test": "npm run lint",
+    "lint": "eslint src/"
   },
   "author": "CaliOpen <contact@caliopen.org> (https://caliopen.org/)",
   "license": "MIT",
@@ -48,6 +49,12 @@
   "devDependencies": {
     "cordova": "^6.3.1",
     "electron": "^1.4.3",
+    "eslint": "^3.8.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-loader": "^1.6.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1",
     "html-webpack-plugin": "^2.22.0",
     "kotatsu": "^0.14.0",
     "nodemon": "^1.11.0",

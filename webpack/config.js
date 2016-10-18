@@ -27,7 +27,7 @@ module.exports = {
         {
           test: /\.jsx?$/,
           include: path.join(__dirname, '../src/'),
-          loaders: ['babel-loader'],
+          loaders: ['babel-loader', 'eslint-loader'],
         },
         {
           test: /\.scss$/,
