@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 class OffCanvas extends Component {
   componentDidMount() {
+    // eslint-disable-next-line no-new
     new Foundation.OffCanvas(jQuery('#left_off_canvas'), {});
   }
 
@@ -9,7 +10,8 @@ class OffCanvas extends Component {
     return (
       <div className="off-canvas-wrapper">
         <div className="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-          <div className="off-canvas position-left"
+          <div
+            className="off-canvas position-left"
             id="left_off_canvas"
             data-off-canvas
           >{ this.props.left }</div>
@@ -21,5 +23,10 @@ class OffCanvas extends Component {
     );
   }
 }
+
+OffCanvas.propTypes = {
+  left: PropTypes.element.isRequired,
+  children: PropTypes.element.isRequired,
+};
 
 export default OffCanvas;

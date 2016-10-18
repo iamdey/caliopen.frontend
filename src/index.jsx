@@ -18,6 +18,7 @@ if (module.hot) {
   module.hot.accept('./App', () => {
     // If you use Webpack 2 in ES modules mode, you can
     // use <App /> here rather than require() a <NextApp />.
+    // eslint-disable-next-line global-require
     const NextApp = require('./App').default;
     ReactDOM.render(
       <AppContainer>

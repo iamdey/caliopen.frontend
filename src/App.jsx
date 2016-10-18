@@ -9,7 +9,7 @@ let history;
 switch (BUILD_TARGET) {
   case 'electron':
   case 'cordova':
-    history = hashHistory
+    history = hashHistory;
     break;
   default:
     history = browserHistory;
@@ -31,7 +31,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  store: PropTypes.object.isRequired,
+  store: PropTypes.shape({}).isRequired,
 };
 
 export default App;

@@ -33,8 +33,8 @@ module.exports = (req, res) => {
   const match = ReactRouter.match;
   const RouterContext = React.createFactory(ReactRouter.RouterContext);
   const Provider = React.createFactory(require('react-redux').Provider);
-  const routes = require('../../src/routes.js').default;
-  const configureStore = require('../../src/store/configure-store.js').default;
+  const routes = require('../../src/routes').default;
+  const configureStore = require('../../src/store/configure-store').default;
 
   // XXX: prefetch
   const initialState = {

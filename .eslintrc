@@ -19,6 +19,9 @@
     "newline-before-return": "error"
   },
   "globals": {
-    "inject": true
+    "inject": true,
+    "Foundation": true,
+    "jQuery": true,
+    "BUILD_TARGET": true
   }
 }

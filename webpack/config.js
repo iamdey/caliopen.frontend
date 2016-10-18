@@ -11,7 +11,7 @@ const initialConfig = {
 };
 
 module.exports = {
-  getBase: (buildTarget) => Object.assign(initialConfig, {
+  getBase: buildTarget => Object.assign(initialConfig, {
     plugins: [
       new DashboardPlugin(),
       new webpack.DefinePlugin({
@@ -43,6 +43,7 @@ module.exports = {
     },
     resolve: {
       alias: { jquery: 'jquery/src/jquery' },
+      extensions: ['', '.js', '.jsx'],
     },
   }),
 };
