@@ -41,5 +41,8 @@ module.exports = {
         path.resolve(__dirname, '../node_modules'),
       ],
     },
+    resolve: {
+      alias: { jquery: 'jquery/src/jquery' },
+    },
   }),
 };

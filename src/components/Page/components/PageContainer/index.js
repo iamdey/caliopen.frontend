@@ -1,4 +1,6 @@
-require('./style.scss');
+import './style.scss';
+import 'jquery';
+import 'foundation-sites';
 import React, { Component } from 'react';
 
 class PageContainer extends Component {
