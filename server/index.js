@@ -1,9 +1,6 @@
-const path = require('path');
-const express = require('express');
 const http = require('http');
 let app = require('./app');
 
-const isDev = process.env.NODE_ENV === 'development';
 const server = http.createServer(app);
 
 server.listen(app.get('port'), () => {
@@ -12,8 +9,9 @@ server.listen(app.get('port'), () => {
 
 if (module.hot) {
   // This will handle HMR and reload the server
-  module.hot.accept('./app.js', function() {
+  module.hot.accept('./app.js', () => {
     server.removeListener('request', app);
+    // eslint-disable-next-line global-require
     app = require('./app.js');
     server.on('request', app);
     console.log('Server reloaded!');

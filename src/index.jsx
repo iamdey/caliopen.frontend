@@ -4,7 +4,13 @@ import { AppContainer } from 'react-hot-loader';
 import App from './App';
 import configureStore from './store/configure-store';
 
-const store = configureStore({}, window.devToolsExtension && window.devToolsExtension());
+let devTools;
+
+if (CALIOPEN_ENV === 'development') {
+  devTools = window.devToolsExtension && window.devToolsExtension();
+}
+
+const store = configureStore({}, devTools);
 
 const rootEl = document.getElementById('root');
 ReactDOM.render(

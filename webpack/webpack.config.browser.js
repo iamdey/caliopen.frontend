@@ -5,7 +5,11 @@ const baseConfig = require('./config.js');
 const isDev = process.env.NODE_ENV === 'development';
 
 const config = Object.assign(baseConfig.getBase('web'), {
-  entry: [path.join(__dirname, '../src/index.jsx')],
+  entry: [
+    'script-loader!jquery',
+    'script-loader!foundation-sites',
+    path.join(__dirname, '../src/index.jsx'),
+  ],
   output: {
     path: path.join(__dirname, '..', 'dist/browser/'),
     filename: 'bundle.js',

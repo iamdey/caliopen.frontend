@@ -4,6 +4,7 @@ const DashboardPlugin = require('webpack-dashboard/plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const initialConfig = {
+  entry: [],
   plugins: [],
   module: {
     loaders: [],
@@ -33,6 +34,13 @@ module.exports = {
           test: /\.scss$/,
           loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
         },
+        {
+          test: /\.(jpe?g|png|gif|svg)$/i,
+          loaders: [
+            'file?hash=sha512&digest=hex&name=[hash].[ext]',
+            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
+          ],
+        },
       ],
     },
     sassLoader: {
@@ -42,7 +50,6 @@ module.exports = {
       ],
     },
     resolve: {
-      alias: { jquery: 'jquery/src/jquery' },
       extensions: ['', '.js', '.jsx'],
     },
   }),
