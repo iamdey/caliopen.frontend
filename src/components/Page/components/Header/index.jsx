@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import HeaderContainer from './components/HeaderContainer';
+import Presenter from './presenter';
 
 class Header extends Component {
   constructor() {
@@ -19,7 +19,7 @@ class Header extends Component {
 
   render() {
     return (
-      <HeaderContainer
+      <Presenter
         brand={children => (<Link to="/">{children}</Link>)}
         searchAsDropdownToggler={(props, children) => (
           <button

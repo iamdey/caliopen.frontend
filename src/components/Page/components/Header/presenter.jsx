@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import './style.scss';
 import brandImgPath from './images/brand.png';
 
-const HeaderContainer = props => (
+const Presenter = ({ brand, searchAsDropdownToggler, searchAsDropdown, search, user }) => (
   <div className="l-header">
     <div className="l-header__wrapper">
       <div className="l-header__brand">
@@ -14,31 +14,31 @@ const HeaderContainer = props => (
             className="l-header__menu-icon menu-icon"
           />
         </span>
-        {props.brand(
+        {brand(
           <img alt="CaliOpen" src={brandImgPath} className="l-header__brand-icon" />
         )}
       </div>
       <div className="l-header__search-toggler show-for-small-only">
         {
-          props.searchAsDropdownToggler({
+          searchAsDropdownToggler({
             'aria-label': 'header.menu.toggle-search-form',
             className: 'l-header__m-link m-link m-link--button',
           }, <span className="fa fa-search" />)
         }
       </div>
       <div
-        className={`l-header__search ${props.searchAsDropdown ? 'l-header__search--as-dropdown' : ''}`}
+        className={`l-header__search ${searchAsDropdown ? 'l-header__search--as-dropdown' : ''}`}
       >
-        {props.search}
+        {search}
       </div>
       <div className="l-header__user">
-        {props.user}
+        {user}
       </div>
     </div>
   </div>
 );
 
-HeaderContainer.propTypes = {
+Presenter.propTypes = {
   brand: PropTypes.func.isRequired,
   searchAsDropdownToggler: PropTypes.func.isRequired,
   searchAsDropdown: PropTypes.bool,
@@ -46,4 +46,4 @@ HeaderContainer.propTypes = {
   user: PropTypes.element.isRequired,
 };
 
-export default HeaderContainer;
+export default Presenter;

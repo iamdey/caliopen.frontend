@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import Presenter from './presenter';
 
 class OffCanvas extends Component {
   componentDidMount() {
@@ -8,25 +9,9 @@ class OffCanvas extends Component {
 
   render() {
     return (
-      <div className="off-canvas-wrapper">
-        <div className="off-canvas-wrapper-inner" data-off-canvas-wrapper>
-          <div
-            className="off-canvas position-left"
-            id="left_off_canvas"
-            data-off-canvas
-          >{ this.props.left }</div>
-          <div className="off-canvas-content" data-off-canvas-content>
-            { this.props.children }
-          </div>
-        </div>
-      </div>
+      <Presenter {...this.props} />
     );
   }
 }
-
-OffCanvas.propTypes = {
-  left: PropTypes.element.isRequired,
-  children: PropTypes.element.isRequired,
-};
 
 export default OffCanvas;
