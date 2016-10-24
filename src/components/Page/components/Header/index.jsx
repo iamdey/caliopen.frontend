@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Presenter from './presenter';
+import SearchField from './components/SearchField';
 
 class Header extends Component {
   constructor() {
@@ -28,7 +29,7 @@ class Header extends Component {
           >{children}</button>
         )}
         searchAsDropdown={this.state.searchAsDropdown}
-        search={<search-field />}
+        search={<SearchField />}
         user={this.isAuthenticated ? <user-menu /> : <a href="/auth/login">{'header.menu.signin'}</a>}
       />
     );

@@ -29,7 +29,7 @@ const Presenter = ({ brand, searchAsDropdownToggler, searchAsDropdown, search, u
       <div
         className={`l-header__search ${searchAsDropdown ? 'l-header__search--as-dropdown' : ''}`}
       >
-        {search}
+        <div className="l-header__m-search-field">{search}</div>
       </div>
       <div className="l-header__user">
         {user}
