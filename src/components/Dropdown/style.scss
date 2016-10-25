@@ -1,0 +1,10 @@
+@import '../../styles/common.scss';
+@import '../../styles/vendor/foundation-sites.scss';
+
+.m-dropdown {
+  @include dropdown-container;
+  width: auto;
+
+  background-color: $co-color__fg__back;
+  box-shadow: $co-shadow;
+}
