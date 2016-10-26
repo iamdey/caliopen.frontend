@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import CoLink from '../../../Link';
 import Presenter from './presenter';
 import SearchField from './components/SearchField';
 import UserMenu from './components/UserMenu';
@@ -32,7 +33,7 @@ class Header extends Component {
         )}
         searchAsDropdown={this.state.searchAsDropdown}
         search={<SearchField />}
-        user={this.isAuthenticated ? <UserMenu /> : <a href="/auth/login">{'header.menu.signin'}</a>}
+        user={this.isAuthenticated ? <UserMenu /> : <CoLink to="/auth/login" modifiers={{ button: true }}>{'header.menu.signin'}</CoLink>}
       />
     );
   }

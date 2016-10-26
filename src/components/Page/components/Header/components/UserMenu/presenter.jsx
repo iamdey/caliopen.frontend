@@ -18,18 +18,10 @@ const Presenter = ({ user }) => (
         <VerticalMenuTextItem>{user.name}</VerticalMenuTextItem>
         <Separator />
         <VerticalMenuItem>
-          <Link
-            to="/account"
-            className="l-header__m-menu__item-content m-menu__item-content"
-            modifiers={{ button: true }}
-          >{'header.menu.account'}</Link>
+          <Link to="/account" modifiers={{ button: true }}>{'header.menu.account'}</Link>
         </VerticalMenuItem>
         <VerticalMenuItem>
-          <Link
-            to="/auth/logout"
-            className="l-header__m-menu__item-content m-menu__item-content"
-            modifiers={{ button: true }}
-          >{'header.menu.signout'}</Link>
+          <Link to="/auth/logout" modifiers={{ button: true }}>{'header.menu.signout'}</Link>
         </VerticalMenuItem>
       </VerticalMenu>
     </Dropdown>
