@@ -2,16 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import './style.scss';
 
-export const DropdownController = ({ toggle, children, ...props }) => {
-  console.log('');
-
-  return (
-    <button
-      data-toggle={toggle}
-      {...props}
-    >{children}</button>
-  );
-};
+export const DropdownController = ({ toggle, children, ...props }) => (
+  <button
+    data-toggle={toggle}
+    {...props}
+  >{children}</button>
+);
 
 DropdownController.propTypes = {
   toggle: PropTypes.string.isRequired,
