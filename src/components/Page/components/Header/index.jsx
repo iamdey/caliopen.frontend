@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import CoLink from '../../../Link';
 import Button from '../../../Button';
+import Icon from '../../../Icon';
 import Presenter from './presenter';
 import SearchField from './components/SearchField';
 import UserMenu from './components/UserMenu';
@@ -26,11 +27,11 @@ class Header extends Component {
     return (
       <Presenter
         brand={children => (<Link to="/">{children}</Link>)}
-        searchAsDropdownToggler={children => (
+        searchAsDropdownToggler={(
           <Button
             aria-label="header.menu.toggle-search-form"
             onClick={this.handleClickToggleSearchAsDropdown}
-          >{children}</Button>
+          ><Icon type="search" /></Button>
         )}
         searchAsDropdown={this.state.searchAsDropdown}
         search={<SearchField />}

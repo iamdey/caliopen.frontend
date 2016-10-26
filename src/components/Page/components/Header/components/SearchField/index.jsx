@@ -1,6 +1,8 @@
 import React from 'react';
 import './style.scss';
 import InputText from '../../../../../InputText';
+import Icon from '../../../../../Icon';
+import { RawButton } from '../../../../../Button';
 
 const SearchField = () => (
   <div className="m-search-field">
@@ -9,11 +11,11 @@ const SearchField = () => (
         placeholder={'header.menu.search'}
         className="m-search-field__input m-input-text"
       />
-      <button
-        className="m-search-field__button fa fa-search"
-        type="button"
+      <RawButton
+        className="m-search-field__button"
+        type="submit"
         aria-label={'header.menu.search'}
-      />
+      ><Icon type="search" /></RawButton>
     </form>
   </div>
 );

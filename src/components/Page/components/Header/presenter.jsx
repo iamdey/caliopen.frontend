@@ -26,9 +26,7 @@ const Presenter = ({ brand, searchAsDropdownToggler, searchAsDropdown, search, u
           )}
         </div>
         <div className="l-header__search-toggler show-for-small-only">
-          {
-            searchAsDropdownToggler(<span className="fa fa-search" />)
-          }
+          {searchAsDropdownToggler}
         </div>
         <div className={searchClassName}>
           <div className="l-header__m-search-field">{search}</div>
@@ -41,7 +39,7 @@ const Presenter = ({ brand, searchAsDropdownToggler, searchAsDropdown, search, u
 
 Presenter.propTypes = {
   brand: PropTypes.func.isRequired,
-  searchAsDropdownToggler: PropTypes.func.isRequired,
+  searchAsDropdownToggler: PropTypes.node.isRequired,
   searchAsDropdown: PropTypes.bool,
   search: PropTypes.element.isRequired,
   user: PropTypes.element.isRequired,
