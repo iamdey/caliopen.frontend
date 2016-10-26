@@ -18,7 +18,7 @@ export const VerticalMenuItem = ({ children, className, ...props }) => {
 };
 
 VerticalMenuItem.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
 };
 
@@ -31,7 +31,7 @@ const VerticalMenu = ({ children }) => (
 );
 
 VerticalMenu.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 

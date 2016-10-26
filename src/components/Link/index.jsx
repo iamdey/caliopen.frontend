@@ -21,7 +21,7 @@ const Link = ({ children, className, modifiers = {}, ...props }) => {
 Link.propTypes = {
   className: PropTypes.string,
   modifiers: PropTypes.shape({ button: PropTypes.bool }),
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Link;

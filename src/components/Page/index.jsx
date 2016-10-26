@@ -16,7 +16,7 @@ const PageContainer = props => (
 );
 
 PageContainer.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default PageContainer;

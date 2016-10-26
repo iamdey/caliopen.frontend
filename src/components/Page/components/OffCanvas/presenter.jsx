@@ -16,8 +16,8 @@ const Presenter = ({ leftChildren, children }) => (
 );
 
 Presenter.propTypes = {
-  leftChildren: PropTypes.element.isRequired,
-  children: PropTypes.element.isRequired,
+  leftChildren: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Presenter;

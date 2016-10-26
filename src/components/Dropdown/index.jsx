@@ -15,7 +15,7 @@ export const DropdownController = ({ toggle, children, ...props }) => {
 
 DropdownController.propTypes = {
   toggle: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 class Dropdown extends Component {
@@ -39,7 +39,7 @@ class Dropdown extends Component {
 
 Dropdown.propTypes = {
   id: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
   modifiers: PropTypes.shape({ bottom: PropTypes.bool }),
 };
