@@ -1,12 +1,9 @@
 @import '../../styles/common.scss';
 @import '../../styles/object/o-clickable.scss';
 
-.m-link {
+.m-button {
   @include o-clickable;
-
-  &--button {
-    @include o-clickable--button;
-  }
+  @include o-clickable--button;
 
   &--plain {
     @include o-clickable--plain;

@@ -29,6 +29,7 @@ $co-form__spacing: (
 $co-grid__gutter: 30px;
 $co-grid__gutter--small: 20px;
 
+$co-animation__clickable-transition: background-color 0.1s ease-out, color 0.1s ease-out !default;
 $co-animation__box-transition: box-shadow .15s, border-color .15s ease-in-out !default;
 $co-animation__margin-transition: margin .15s, padding .15s ease !default;
 

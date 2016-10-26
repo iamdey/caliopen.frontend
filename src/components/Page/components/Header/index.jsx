@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import CoLink from '../../../Link';
+import Button from '../../../Button';
 import Presenter from './presenter';
 import SearchField from './components/SearchField';
 import UserMenu from './components/UserMenu';
@@ -25,11 +26,11 @@ class Header extends Component {
     return (
       <Presenter
         brand={children => (<Link to="/">{children}</Link>)}
-        searchAsDropdownToggler={(props, children) => (
-          <button
-            {...props}
+        searchAsDropdownToggler={children => (
+          <Button
+            aria-label="header.menu.toggle-search-form"
             onClick={this.handleClickToggleSearchAsDropdown}
-          >{children}</button>
+          >{children}</Button>
         )}
         searchAsDropdown={this.state.searchAsDropdown}
         search={<SearchField />}
