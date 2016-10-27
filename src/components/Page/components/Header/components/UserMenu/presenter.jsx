@@ -1,19 +1,20 @@
 import React, { PropTypes } from 'react';
 import Link from '../../../../../Link';
+import Icon from '../../../../../Icon';
 import VerticalMenu, { VerticalMenuTextItem, VerticalMenuItem, Separator } from '../../../../../VerticalMenu';
 import Dropdown, { DropdownController } from '../../../../../Dropdown';
 
-const Presenter = ({ user }) => (
+const Presenter = ({ user, isDropdownOpen, onDropdownToggle }) => (
   <div>
     <DropdownController
       toggle="co-user-menu"
-      className="l-header__m-link m-link m-link--button float-right"
+      className="float-right"
     >
-      <i className="fa fa-user" />
+      <Icon type="user" />
       <span className="show-for-small-only">{user.name}</span>
-      <i className="fa fa-caret-down" />
+      <Icon type={isDropdownOpen ? 'caret-up' : 'caret-down'} />
     </DropdownController>
-    <Dropdown id="co-user-menu" modifiers={{ bottom: true }}>
+    <Dropdown id="co-user-menu" position="bottom" closeOnClick onToggle={onDropdownToggle}>
       <VerticalMenu>
         <VerticalMenuTextItem>{user.name}</VerticalMenuTextItem>
         <Separator />
@@ -30,6 +31,8 @@ const Presenter = ({ user }) => (
 
 Presenter.propTypes = {
   user: PropTypes.shape({}).isRequired,
+  isDropdownOpen: PropTypes.bool,
+  onDropdownToggle: PropTypes.func,
 };
 
 export default Presenter;
