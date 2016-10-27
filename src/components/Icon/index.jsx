@@ -3,6 +3,12 @@ import classnames from 'classnames';
 
 const typeAssoc = {
   search: 'fa fa-search',
+  user: 'fa fa-user',
+  'caret-up': 'fa fa-caret-up',
+  'caret-down': 'fa fa-caret-down',
+  envelope: 'fa fa-envelope',
+  comments: 'fa fa-comments',
+  users: 'fa fa-users',
 };
 
 
