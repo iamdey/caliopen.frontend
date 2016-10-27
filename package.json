@@ -18,7 +18,9 @@
     "build:smartphone:dev": "NODE_ENV=development webpack-dashboard -- webpack --watch --config webpack/webpack.config.cordova.js",
     "release": "NODE_ENV=production webpack-dashboard -- kotatsu build server --config webpack/webpack.config.server.js",
     "cordova": "cd cordova && cordova",
-    "test": "npm run lint",
+    "test": "npm-run-all lint test:unit",
+    "test:unit": "jest",
+    "test:unit:watch": "jest --watch",
     "lint": "eslint src/"
   },
   "author": "CaliOpen <contact@caliopen.org> (https://caliopen.org/)",
@@ -62,6 +64,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.1",
     "html-webpack-plugin": "^2.22.0",
+    "jest-cli": "^16.0.2",
     "kotatsu": "^0.14.0",
     "nodemon": "^1.11.0",
     "react-dev-utils": "^0.2.1",
@@ -79,5 +82,8 @@
     "plugins": [
       "react-hot-loader/babel"
     ]
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
