@@ -8,8 +8,8 @@ import SearchField from './components/SearchField';
 import UserMenu from './components/UserMenu';
 
 class Header extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchAsDropdown: false,
     };
