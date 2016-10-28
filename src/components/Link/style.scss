@@ -4,6 +4,10 @@
 .m-link {
   @include o-clickable;
 
+  &--text {
+    @include o-clickable--text;
+  }
+
   &--button {
     @include o-clickable--button;
   }

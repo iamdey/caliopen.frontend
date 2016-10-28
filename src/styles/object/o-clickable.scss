@@ -6,17 +6,14 @@
   transition: $co-animation__clickable-transition;
 
   &:hover {
-    background-color: $co-color__primary;
     color: $co-color__fg__text--high;
   }
 
   &:active {
-    background-color: $co-color__primary--lower;
     color: $co-color__fg__text--high;
   }
 
   &.is-active {
-    background-color: $co-color__primary--low;
     color: $co-color__fg__text;
     cursor: default;
   }
@@ -36,10 +33,29 @@
   }
 }
 
+@mixin o-clickable--text {
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
 @mixin o-clickable--button {
   display: inline-block;
   padding: 0 1rem;
   line-height: inherit;
+
+  &:hover {
+    background-color: $co-color__primary;
+  }
+
+  &:active {
+    background-color: $co-color__primary--lower;
+  }
+
+  &.is-active {
+    background-color: $co-color__primary--low;
+  }
 }
 
 @mixin o-clickable--hollow {
