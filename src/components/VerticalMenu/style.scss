@@ -1,5 +1,6 @@
-@import '../../styles/common.scss';
+@import '../../styles/common';
 
+// XXX: move or remove
 @mixin m-menu--horizontal {
   &__item {
     float: left;
@@ -43,6 +44,7 @@
   padding: 0;
 
   &__item--is-active { color: $co-color__fg__text--high; }
+
   &__item-content {
     display: block;
     padding: 0 1rem;

@@ -21,7 +21,9 @@
     "test": "npm-run-all lint test:unit",
     "test:unit": "jest",
     "test:unit:watch": "jest --watch",
-    "lint": "eslint src/"
+    "lint": "npm-run-all lint:js lint:sass",
+    "lint:js": "eslint src/",
+    "lint:sass": "sass-lint 'src/**/*.scss'"
   },
   "author": "CaliOpen <contact@caliopen.org> (https://caliopen.org/)",
   "license": "MIT",
@@ -68,6 +70,8 @@
     "kotatsu": "^0.14.0",
     "nodemon": "^1.11.0",
     "react-dev-utils": "^0.2.1",
+    "sass-lint": "^1.9.1",
+    "sasslint-loader": "0.0.1",
     "webpack-dashboard": "^0.2.0",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",

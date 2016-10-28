@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const extractTextPlugin = new ExtractTextPlugin('style.css');
 const initialConfig = {
   entry: [],
   plugins: [],
@@ -19,9 +20,7 @@ module.exports = {
         BUILD_TARGET: JSON.stringify(buildTarget),
         CALIOPEN_ENV: JSON.stringify(process.env.NODE_ENV),
       }),
-      new ExtractTextPlugin('style.css', {
-        allChunks: true,
-      }),
+      extractTextPlugin,
     ],
     module: {
       loaders: [
@@ -32,7 +31,7 @@ module.exports = {
         },
         {
           test: /\.scss$/,
-          loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
+          loader: extractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
         },
         {
           test: /\.(jpe?g|png|gif|svg)$/i,
@@ -47,12 +46,22 @@ module.exports = {
         { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=application/octet-stream' },
         { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader' },
       ],
+      preLoaders: [
+        {
+          test: /\.scss$/,
+          include: path.join(__dirname, '../src/'),
+          loader: 'sasslint',
+        },
+      ],
     },
     sassLoader: {
       includePaths: [
         path.resolve(__dirname, '../src'),
         path.resolve(__dirname, '../node_modules'),
       ],
+    },
+    sasslint: {
+      configFile: path.resolve(__dirname, '../.sass-lint.yml'),
     },
     resolve: {
       extensions: ['', '.js', '.jsx'],

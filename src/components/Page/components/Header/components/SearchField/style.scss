@@ -1,4 +1,4 @@
-@import '../../../../../../styles/common.scss';
+@import '../../../../../../styles/common';
 
 @mixin m-search-field--width($width) {
   @if ($width == block) {

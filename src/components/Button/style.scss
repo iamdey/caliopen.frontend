@@ -1,15 +1,11 @@
-@import '../../styles/common.scss';
-@import '../../styles/object/o-clickable.scss';
+@import '../../styles/common';
+@import '../../styles/object/o-clickable';
 
 .m-button {
   @include o-clickable;
   @include o-clickable--button;
 
-  &--plain {
-    @include o-clickable--plain;
-  }
+  &--plain { @include o-clickable--plain; }
 
-  &--hollow {
-    @include o-clickable--hollow;
-  }
+  &--hollow { @include o-clickable--hollow; }
 }

@@ -13,6 +13,7 @@ const typeAssoc = {
 
 
 const Icon = ({ className, type, ...props }) => {
+  // eslint-disable-next-line no-console
   const typeClassName = typeAssoc[type] || console.error(`The type "${type}" is not a valid Icon component type`);
   const iconProps = {
     ...props,
