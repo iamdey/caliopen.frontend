@@ -11,6 +11,7 @@ const Link = ({ raw, className, modifiers = {}, ...props }) => {
       'm-link',
       {
         'm-link--button': modifiers.button,
+        'm-link--expanded': modifiers.expanded,
         'm-link--text': !modifiers.button && !raw,
       }
     ),
@@ -22,7 +23,7 @@ const Link = ({ raw, className, modifiers = {}, ...props }) => {
 Link.propTypes = {
   raw: PropTypes.bool,
   className: PropTypes.string,
-  modifiers: PropTypes.shape({ button: PropTypes.bool }),
+  modifiers: PropTypes.shape({ button: PropTypes.bool, expanded: PropTypes.bool }),
 };
 
 export default Link;

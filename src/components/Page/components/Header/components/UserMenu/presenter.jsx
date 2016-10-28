@@ -10,8 +10,8 @@ const Presenter = ({ user, isDropdownOpen, onDropdownToggle }) => (
       toggle="co-user-menu"
       className="float-right"
     >
-      <Icon type="user" />
-      <span className="show-for-small-only">{user.name}</span>
+      <Icon type="user" />&nbsp;
+      <span className="show-for-small-only">{user.name}</span>&nbsp;
       <Icon type={isDropdownOpen ? 'caret-up' : 'caret-down'} />
     </DropdownController>
     <Dropdown id="co-user-menu" position="bottom" closeOnClick onToggle={onDropdownToggle}>

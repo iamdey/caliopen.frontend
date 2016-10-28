@@ -1,0 +1,20 @@
+@import '../../../../../../styles/common.scss';
+
+$m-navbar__height: $co-component__height !default;
+
+.m-navbar {
+  line-height: $m-navbar__height;
+
+  // &__item-container,
+  // &__item {
+  //   margin-right: .25rem;
+  // }
+  //
+  // &__item--last {
+  //   margin-right: 0;
+  // }
+
+  // &__content {
+  //   line-height: $m-navbar__height;
+  // }
+}

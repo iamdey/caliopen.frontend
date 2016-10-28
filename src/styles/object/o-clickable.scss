@@ -58,6 +58,10 @@
   }
 }
 
+@mixin o-clickable--expanded {
+  display: block;
+}
+
 @mixin o-clickable--hollow {
   border-width: 1px;
   border-style: solid;

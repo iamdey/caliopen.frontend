@@ -3,12 +3,13 @@ import './style.scss';
 import MainView from './components/MainView';
 import OffCanvas from './components/OffCanvas';
 import Header from './components/Header';
+import Navigation from './components/Navigation';
 
 const PageContainer = props => (
   <OffCanvas leftChildren={<navigation-alt />}>
     <MainView
       header={<Header />}
-      nav={<navigation />}
+      nav={<Navigation />}
       callToAction={<call-to-action />}
       flashMessage={<flash-message-container />}
     >{ props.children }</MainView>
