@@ -30,6 +30,10 @@ module.exports = {
           loaders: ['babel-loader', 'eslint-loader'],
         },
         {
+          test: /\.css$/,
+          loader: extractTextPlugin.extract('style-loader', 'css-loader'),
+        },
+        {
           test: /\.scss$/,
           loader: extractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
         },

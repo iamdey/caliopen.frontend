@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 
-const MainView = (header, nav, callToAction, flashMessage, children) => (
+const MainView = (header, nav, callToAction, notification, children) => (
   <div className="l-body">
     { header }
     { nav }
@@ -13,7 +13,7 @@ const MainView = (header, nav, callToAction, flashMessage, children) => (
     <div className="l-call-to-action">
       { callToAction }
     </div>
-    { flashMessage }
+    { notification }
   </div>
 );
 

@@ -4,6 +4,7 @@ import MainView from './components/MainView';
 import OffCanvas from './components/OffCanvas';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
+import NotificationCenter from './components/NotificationCenter';
 
 const PageContainer = props => (
   <OffCanvas leftChildren={<navigation-alt />}>
@@ -11,7 +12,7 @@ const PageContainer = props => (
       header={<Header />}
       nav={<Navigation />}
       callToAction={<call-to-action />}
-      flashMessage={<flash-message-container />}
+      notification={<NotificationCenter />}
     >{ props.children }</MainView>
   </OffCanvas>
 );
