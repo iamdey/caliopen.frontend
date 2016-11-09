@@ -1,29 +1,24 @@
-import React, { Component } from 'react';
+import { createSelector } from 'reselect';
+import { connect } from 'react-redux';
 import Presenter from './presenter';
 
-class UserMenu extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      user: {
-        name: 'Foo',
-        isDropdownOpen: false,
-      },
-    };
+const userSelector = (state) => {
+  if (state.user.user) {
+    // eslint-disable-next-line no-console
+    console.error('remove mock user', state.user);
   }
 
-  render() {
-    return (
-      <Presenter
-        user={this.state.user}
-        onDropdownToggle={(isDropdownOpen) => {
-          this.setState({ isDropdownOpen });
-        }}
-        isDropdownOpen={this.state.isDropdownOpen}
-      />
-    );
-  }
-}
+  return {
+    name: 'Foo',
+    contact: {
+      title: 'Foobar',
+    },
+  };
+};
 
-export default UserMenu;
+const mapStateToProps = createSelector(
+  [userSelector],
+  user => ({ user })
+);
+
+export default connect(mapStateToProps)(Presenter);
