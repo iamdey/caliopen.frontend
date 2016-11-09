@@ -8,7 +8,10 @@ const typeAssoc = {
   'caret-down': 'fa fa-caret-down',
   envelope: 'fa fa-envelope',
   comments: 'fa fa-comments',
+  'comments-o': 'fa fa-comments-o',
   users: 'fa fa-users',
+  plus: 'fa fa-plus',
+  reply: 'fa fa-reply',
 };
 
 

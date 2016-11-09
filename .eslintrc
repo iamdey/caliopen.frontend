@@ -22,6 +22,7 @@
     "inject": true,
     "Foundation": true,
     "jQuery": true,
+    "jest": true,
     "BUILD_TARGET": true,
     "CALIOPEN_ENV": true
   }

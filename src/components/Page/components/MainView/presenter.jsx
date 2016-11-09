@@ -10,9 +10,7 @@ const MainView = (header, nav, callToAction, notification, children) => (
         { children }
       </div>
     </section>
-    <div className="l-call-to-action">
-      { callToAction }
-    </div>
+    { callToAction }
     { notification }
   </div>
 );

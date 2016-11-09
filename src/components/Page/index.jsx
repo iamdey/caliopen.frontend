@@ -5,13 +5,14 @@ import OffCanvas from './components/OffCanvas';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import NotificationCenter from './components/NotificationCenter';
+import CallToAction from './components/CallToAction';
 
 const PageContainer = props => (
   <OffCanvas leftChildren={<navigation-alt />}>
     <MainView
       header={<Header />}
       nav={<Navigation />}
-      callToAction={<call-to-action />}
+      callToAction={<CallToAction />}
       notification={<NotificationCenter />}
     >{ props.children }</MainView>
   </OffCanvas>

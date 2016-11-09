@@ -51,15 +51,19 @@
     "react-redux-notify": "^1.0.8",
     "react-router": "^2.8.1",
     "react-router-redux": "^4.0.6",
+    "react-tappable": "^0.8.4",
     "redux": "^3.6.0",
+    "reselect": "^2.5.4",
     "sass-loader": "^4.0.2",
     "script-loader": "^0.7.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2"
   },
   "devDependencies": {
+    "babel-jest": "^16.0.0",
     "cordova": "^6.3.1",
     "electron": "^1.4.3",
+    "enzyme": "^2.5.1",
     "eslint": "^3.8.1",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-loader": "^1.6.0",
@@ -70,7 +74,9 @@
     "jest-cli": "^16.0.2",
     "kotatsu": "^0.14.0",
     "nodemon": "^1.11.0",
+    "react-addons-test-utils": "^15.3.2",
     "react-dev-utils": "^0.2.1",
+    "react-test-renderer": "^15.3.2",
     "sass-lint": "^1.9.1",
     "sasslint-loader": "0.0.1",
     "webpack-dashboard": "^0.2.0",
@@ -89,6 +95,10 @@
     ]
   },
   "jest": {
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "^.+\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   }
 }
