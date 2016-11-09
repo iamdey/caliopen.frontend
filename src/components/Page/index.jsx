@@ -4,11 +4,12 @@ import MainView from './components/MainView';
 import OffCanvas from './components/OffCanvas';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
+import NavigationAlt from './components/NavigationAlt';
 import NotificationCenter from './components/NotificationCenter';
 import CallToAction from './components/CallToAction';
 
 const PageContainer = props => (
-  <OffCanvas leftChildren={<navigation-alt />}>
+  <OffCanvas leftChildren={<NavigationAlt />}>
     <MainView
       header={<Header />}
       nav={<Navigation />}
