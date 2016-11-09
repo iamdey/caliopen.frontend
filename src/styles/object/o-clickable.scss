@@ -43,7 +43,7 @@
 @mixin o-clickable--button {
   display: inline-block;
   padding: 0 1rem;
-  line-height: inherit;
+  line-height: $co-component__height;
 
   &:hover {
     background-color: $co-color__primary;
@@ -60,6 +60,7 @@
 
 @mixin o-clickable--expanded {
   display: block;
+  line-height: inherit;
 }
 
 @mixin o-clickable--hollow {

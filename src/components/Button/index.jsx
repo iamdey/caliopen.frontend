@@ -23,8 +23,9 @@ const Button = ({ children, className, modifiers = {}, ...props }) => {
       className,
       'm-button',
       {
-        'm-link--plain': modifiers.plain,
-        'm-link--hollow': modifiers.hollow,
+        'm-button--expanded': modifiers.expanded,
+        'm-button--plain': modifiers.plain,
+        'm-button--hollow': modifiers.hollow,
       }
     ),
   };

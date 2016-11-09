@@ -9,6 +9,7 @@ const Presenter = ({ user, isDropdownOpen, onDropdownToggle }) => (
     <DropdownController
       toggle="co-user-menu"
       className="float-right"
+      modifiers={{ expanded: true }}
     >
       <Icon type="user" />&nbsp;
       <span className="show-for-small-only">{user.name}</span>&nbsp;
@@ -19,10 +20,10 @@ const Presenter = ({ user, isDropdownOpen, onDropdownToggle }) => (
         <VerticalMenuTextItem>{user.name}</VerticalMenuTextItem>
         <Separator />
         <VerticalMenuItem>
-          <Link to="/account" modifiers={{ button: true }}>{'header.menu.account'}</Link>
+          <Link to="/account" modifiers={{ button: true, expanded: true }}>{'header.menu.account'}</Link>
         </VerticalMenuItem>
         <VerticalMenuItem>
-          <Link to="/auth/logout" modifiers={{ button: true }}>{'header.menu.signout'}</Link>
+          <Link to="/auth/logout" modifiers={{ button: true, expanded: true }}>{'header.menu.signout'}</Link>
         </VerticalMenuItem>
       </VerticalMenu>
     </Dropdown>
