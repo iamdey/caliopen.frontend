@@ -4,7 +4,8 @@ This subtree is meant for building and serving CaliOpen frontend.
 
 * serving html, js and static files
 * build web application
-* build desktop applications
+* build or run desktop applications
+* build or run mobile devices applications
 
 ## Installation
 
@@ -19,6 +20,13 @@ npm install
 ```
 npm start
 ```
+
+**For web (without SSR)**
+
+```
+npm run start:dev:browser
+```
+
 
 **For desktop**
 
