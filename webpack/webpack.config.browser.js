@@ -38,6 +38,9 @@ if (!isProd) {
   uglifyJSOptions = {
     beautify: true,
     mangle: false,
+    compress: {
+      warnings: false,
+    },
   };
 }
 
