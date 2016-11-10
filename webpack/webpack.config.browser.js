@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const baseConfig = require('./config.js');
 
 const isDev = process.env.NODE_ENV === 'development';
+const isProd = process.env.NODE_ENV === 'production';
 
 const config = Object.assign(baseConfig.getBase('web'), {
   entry: [
@@ -30,5 +31,17 @@ if (isDev) {
     new webpack.HotModuleReplacementPlugin()
   );
 }
+
+let uglifyJSOptions = {};
+
+if (!isProd) {
+  uglifyJSOptions = {
+    beautify: true,
+    mangle: false,
+  };
+}
+
+config.plugins.push(new webpack.optimize.UglifyJsPlugin(uglifyJSOptions));
+
 
 module.exports = config;
