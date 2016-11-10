@@ -1,8 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
-const isDev = process.env.NODE_ENV === 'development';
 const DASHBOARD = process.env.DASHBOARD ? JSON.parse(process.env.DASHBOARD) : true;
 
 const initialConfig = {
@@ -24,7 +24,6 @@ module.exports = {
       extractTextPlugin,
     ];
     if (DASHBOARD) {
-      const DashboardPlugin = require('webpack-dashboard/plugin');
       plugins.push(new DashboardPlugin());
     }
 
